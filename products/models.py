@@ -1,4 +1,4 @@
-from itertools import product
+# from itertools import car
 from django.db import models
 
 REVIEW_STARS_CHOICES = (
@@ -10,7 +10,7 @@ REVIEW_STARS_CHOICES = (
 )
 
 
-class Product(models.Model):
+class Car(models.Model):
     name = models.CharField(max_length=128)
     picture = models.ImageField(null=True, blank=True )
     price = models.FloatField(max_length=10)
@@ -22,9 +22,9 @@ class Product(models.Model):
          return self.name
 
 class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
     review = models.CharField(max_length=1024)
     date = models.DateField('review date')
 
     def __str__(self):
-         return "[" + str(self.product) + "] " + self.review[0:32]
+         return "[" + str(self.car) + "] " + self.review[0:32]
