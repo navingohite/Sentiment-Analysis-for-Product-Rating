@@ -12,6 +12,7 @@ REVIEW_STARS_CHOICES = (
 
 class Product(models.Model):
     name = models.CharField(max_length=128)
+    picture = models.ImageField(null=True, blank=True )
     price = models.FloatField(max_length=10)
     model = models.CharField(max_length=64, null=True)
     brand = models.CharField(max_length=64, default="unknown")
